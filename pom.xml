@@ -23,7 +23,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>commons-email2</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.0.0.cosium-SNAPSHOT</version>
     <name>Apache Commons Email</name>
 
     <inceptionYear>2001</inceptionYear>
@@ -325,10 +325,11 @@
         
         <powermock.version>2.0.9</powermock.version>
         <easymock.version>5.1.0</easymock.version>
+        <gpg.skip>true</gpg.skip>
     </properties> 
 
     <build>
-        <defaultGoal>clean verify apache-rat:check pmd:check pmd:cpd-check spotbugs:check javadoc:javadoc</defaultGoal>
+        <defaultGoal>clean verify apache-rat:check pmd:check pmd:cpd-check javadoc:javadoc</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -372,6 +373,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <mavenExecutorId>forked-path</mavenExecutorId>
+                    <arguments>-P!release</arguments>
                 </configuration>
             </plugin>
           <plugin>
@@ -430,6 +432,24 @@
             <configuration>
               <excludeFilterFile>${basedir}/conf/spotbugs-exclude-filter.xml</excludeFilterFile>
             </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-release-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>clean-staging</id>
+                <phase>none</phase>
+              </execution>
+              <execution>
+                <id>detatch-distributions</id>
+                <phase>none</phase>
+              </execution>
+              <execution>
+                <id>stage-distributions</id>
+                <phase>none</phase>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
     </build>
