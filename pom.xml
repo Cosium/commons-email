@@ -23,7 +23,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>commons-email2</artifactId>
-    <version>2.0.0.2.cosium</version>
+    <version>2.0.0.3.cosium-SNAPSHOT</version>
     <name>Apache Commons Email</name>
 
     <inceptionYear>2001</inceptionYear>
@@ -43,7 +43,7 @@
         <connection>scm:git:https://gitbox.apache.org/repos/asf/commons-email</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/commons-email</developerConnection>
         <url>https://gitbox.apache.org/repos/asf/commons-email</url>
-      <tag>2.0.0.2.cosium</tag>
+      <tag>HEAD</tag>
   </scm> 
 
     <developers>
